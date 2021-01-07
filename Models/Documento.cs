@@ -31,7 +31,7 @@ namespace scadastro.Models
         public string CpfPai { get; set; }
 
         [Column("CI02_NU_TELEFONE_RESPONSAVEL")]
-        public string TelefoneResponavel { get; set; }
+        public long TelefoneResponavel { get; set; }
 
         [Column("CI02_NU_RG_ALUNO")]
         public string Rg { get; set; }

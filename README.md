@@ -15,4 +15,6 @@ Caso o arquivo scadastrando.db não exista na pasta:
 dotnet ef database update
 ```
 
+Nesse projeto é utilizado api do viacep para carrega informações do correio
+
 

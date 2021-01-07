@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace scadastro.Utils
@@ -60,7 +61,6 @@ namespace scadastro.Utils
 
 
 
-
         public static string TelefoneSemFormatacao(string telefone)
         {
             if (string.IsNullOrEmpty(telefone))
@@ -87,6 +87,103 @@ namespace scadastro.Utils
             }
         }
 
+
+
+        public static string FormatarCPF(string cpf)
+        {
+            cpf = cpf.Replace("-", "").Replace("/", "").Replace(".", "").Replace("_", "").Replace(" ", "");
+            int tamanhoOriginal = cpf.Length;
+            //000.000.000-00
+            if (tamanhoOriginal > 8)
+            {
+                cpf = cpf.Insert(9, "-");
+            }
+
+            if (tamanhoOriginal > 5)
+            {
+                cpf = cpf.Insert(6, ".");
+            }
+            if (tamanhoOriginal > 2)
+            {
+                cpf = cpf.Insert(3, ".");
+            }
+            return cpf;
+        }
+
+
+        public static string FormatarTelefone(string telefone)
+        {
+            try
+            {
+                if (string.IsNullOrWhiteSpace(telefone))
+                {
+                    return telefone;
+                }
+                else if (telefone.Length > 10)
+                {
+                    return "(" + telefone.Substring(0, 2) + ") " + telefone.Substring(2, 5) + "-" + telefone.Substring(7, 4);
+                }
+                else
+                {
+                    return "(" + telefone.Substring(0, 2) + ") " + telefone.Substring(2, 4) + "-" + telefone.Substring(6, 4);
+                }
+            }
+            catch
+            {
+                return telefone;
+            }
+        }
+
+
+        public static string FormatarDataInput(string data)
+        {
+            if (string.IsNullOrEmpty(data))
+            {
+                return data;
+            }
+            else
+            {
+                var arrayData = data.Split("/");
+
+                return $"{arrayData[2]}-{arrayData[1]}-{arrayData[0]}";
+            }
+        }
+
+
+        public static string FormatarCEP(string cep)
+        {
+            if (!string.IsNullOrEmpty(cep))
+            {
+                cep = cep.Replace("-", "");
+                if (cep.Count() >= 5)
+                {
+                    cep = cep.Insert(5, "-");
+                }
+            }
+            return cep;
+        }
+
+        public static bool IsEmail(string email)
+        {
+            bool valido = false;
+
+            if (email != null)
+            {
+                if (email != string.Empty)
+                {
+                    Regex regex = new Regex(@"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$");
+                    Match match = regex.Match(email);
+
+                    if (match.Success)
+                    {
+                        return valido = true;
+                    }
+
+                }
+            }
+            return valido;
+
+        }
 
 
         public static string CepSemFormatacao(string cep)

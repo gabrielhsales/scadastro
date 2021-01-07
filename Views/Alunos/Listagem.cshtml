@@ -1,13 +1,249 @@
-﻿<div class="container-fluid" id="q-app">
+﻿@using scadastro.ViewModels.AlunosViewModels
+
+@model ListagemAlunosViewModel
+
+<script src="~/js/controllers/Alunos/Cadastro.js" asp-append-version="true"></script>
+
+<div class="container-fluid" id="q-app">
+    <h2 class="text-left">Formulario padrão de cadastro</h2>
+
     <div class="row">
-        <div class="card-body">
-            <h2 class="text-left">Formulário de cadastro padrao</h2>
-            <form class="md-form" asp-controller=""  id="FormCadastroAluno" asp-action="" method="post">
+        <div class="col-12">
+
+            <form asp-controller="Alunos" asp-action="Cadastro" name="cadastroAluno" method="post">
+
+                <input type="hidden" asp-for="CadastrAluno.Id" />
+
+                <div class="form-row">
+                    <div class="form-group col-sm-12 col-md-6">
+                        <label asp-for="CadastrAluno.Nome"></label>
+                        <input class="form-control" type="text" asp-for="CadastrAluno.Nome" />
+                        <span asp-validation-for="CadastrAluno.Nome" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-sm-12 col-md-6">
+                        <label asp-for="CadastrAluno.Cpf"></label>
+                        <input class="form-control" type="text" asp-for="CadastrAluno.Cpf" />
+                        <span asp-validation-for="CadastrAluno.Cpf" class="text-danger"></span>
+
+                    </div>
+
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group col-sm-12 col-md-4">
+                        <label asp-for="CadastrAluno.Cep"></label>
+                        <input type="text" class="form-control" asp-for="CadastrAluno.Cep" />
+                        <span asp-validation-for="CadastrAluno.Cep" class="text-danger"></span>
+
+                    </div>
+                    <div class="form-group col-sm-12 col-md-4">
+                        <label asp-for="CadastrAluno.Logadouro"></label>
+                        <input type="text" class="form-control" asp-for="CadastrAluno.Logadouro" />
+                        <span asp-validation-for="CadastrAluno.Logadouro" class="text-danger"></span>
+
+                    </div>
+
+                    <div class="form-group col-sm-12 col-md-2">
+                        <label asp-for="CadastrAluno.DataNascimento"></label>
+                        <input type="date" class="form-control" asp-for="CadastrAluno.DataNascimento" />
+                        <span asp-validation-for="CadastrAluno.DataNascimento" class="text-danger"></span>
+
+                    </div>
+
+                    <div class="form-group col-sm-12 col-md-2" style="margin-top:25px">
+                        <select class="form-control" asp-for="CadastrAluno.Sexo">
+                            <option value="m">Masculino</option>
+                            <option value="f">Feminino</option>
+                            <option value="o">Outro</option>
+
+                        </select>
+                        <span asp-validation-for="CadastrAluno.Sexo" class="text-danger"></span>
+
+
+
+                    </div>
+
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group col-sm-12 col-md-4">
+                        <label asp-for="CadastrAluno.Email"></label>
+                        <input type="text" class="form-control" asp-for="CadastrAluno.Email" />
+                        <span asp-validation-for="CadastrAluno.Email" class="text-danger"></span>
+
+                    </div>
+                    <div class="form-group col-sm-12 col-md-4">
+                        <label asp-for="CadastrAluno.Telefone"></label>
+                        <input type="text" class="form-control" asp-for="CadastrAluno.Telefone" />
+                        <span asp-validation-for="CadastrAluno.Telefone" class="text-danger"></span>
+
+                    </div>
+
+                    <div class="form-group col-sm-12 col-md-4">
+                        <label asp-for="CadastrAluno.TelefoneResponavel"></label>
+                        <input type="text" class="form-control" asp-for="CadastrAluno.TelefoneResponavel" />
+                        <span asp-validation-for="CadastrAluno.TelefoneResponavel" class="text-danger"></span>
+
+                    </div>
+
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group col-sm-12 col-md-6">
+                        <label asp-for="CadastrAluno.Estado"></label>
+                        <input class="form-control" placeholder="ex: MA" type="text" asp-for="CadastrAluno.Estado" />
+                        <span asp-validation-for="CadastrAluno.Estado" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-sm-12 col-md-6">
+                        <label asp-for="CadastrAluno.Cidade"></label>
+                        <input class="form-control" type="text" asp-for="CadastrAluno.Cidade" />
+                        <span asp-validation-for="CadastrAluno.Cidade" class="text-danger"></span>
+
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group col-sm-12 col-md-6">
+                        <label asp-for="CadastrAluno.Mae"></label>
+                        <input class="form-control" type="text" asp-for="CadastrAluno.Mae" />
+                        <span asp-validation-for="CadastrAluno.Mae" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-sm-12 col-md-6">
+                        <label asp-for="CadastrAluno.CpfMae"></label>
+                        <input class="form-control" type="text" asp-for="CadastrAluno.CpfMae" />
+                        <span asp-validation-for="CadastrAluno.CpfMae" class="text-danger"></span>
+
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group col-sm-12 col-md-6">
+                        <label asp-for="CadastrAluno.Pai"></label>
+                        <input class="form-control" type="text" asp-for="CadastrAluno.Pai" />
+                        <span asp-validation-for="CadastrAluno.Pai" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-sm-12 col-md-6">
+                        <label asp-for="CadastrAluno.CpfPai"></label>
+                        <input class="form-control" type="text" asp-for="CadastrAluno.CpfPai" />
+                        <span asp-validation-for="CadastrAluno.CpfPai" class="text-danger"></span>
+
+                    </div>
+                </div>
+
+
+                <div class="form-row">
+                    <div class="form-group col-sm-12 col-md-4">
+                        <label asp-for="CadastrAluno.Rg"></label>
+                        <input class="form-control" type="text" asp-for="CadastrAluno.Rg" />
+                        <span asp-validation-for="CadastrAluno.Rg" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-sm-12 col-md-4">
+                        <label asp-for="CadastrAluno.EmissaoRg"></label>
+                        <input class="form-control" type="date" asp-for="CadastrAluno.EmissaoRg" />
+                        <span asp-validation-for="CadastrAluno.EmissaoRg" class="text-danger"></span>
+
+                    </div>
+
+                    <div class="form-group col-sm-12 col-md-4">
+                        <label asp-for="CadastrAluno.Nacionalidade"></label>
+                        <input class="form-control" type="text" asp-for="CadastrAluno.Nacionalidade" />
+                        <span asp-validation-for="CadastrAluno.Nacionalidade" class="text-danger"></span>
+
+                    </div>
+
+                </div>
+
+
+
+                <button type="submit" class="btn btn-primary">Salvar</button>
+                <a asp-controller="Alunos" asp-action="Listagem" class="btn btn-outline-info">Limpar</a>
+
+
 
             </form>
 
-
         </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">Lista de alunos cadastrados <span class="badge bg-blue">@Model.ListAluno?.Count()</span></h3>
+
+                    @*<div class="card-tools">
+                            <div class="input-group input-group-sm" style="width: 180px;">
+                                <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
+
+                                <div class="input-group-append">
+                                    <button type="submit" class="btn btn-default">
+                                        <i class="fa fa-fw fa-search"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>*@
+                </div>
+                <!-- /.card-header -->
+
+
+                <div class="card-body table-responsive p-0">
+                    <table class="table table-hover text-nowrap">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th><label asp-for="CadastrAluno.Nome"></label></th>
+                                <th><label asp-for="CadastrAluno.Cpf"></label></th>
+                                <th><label asp-for="CadastrAluno.Email"></label></th>
+                                <th><label asp-for="CadastrAluno.Telefone"></label></th>
+                                <th><label asp-for="CadastrAluno.Mae"></label></th>
+                                <th><label asp-for="CadastrAluno.DataNascimento"></label></th>
+                                <th><label asp-for="CadastrAluno.TelefoneResponavel"></label></th>
+                                <th>Ações</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @if (Model.ListAluno?.Count() > 0)
+                            {
+
+                                @foreach (var item in Model.ListAluno)
+                                {
+
+                                    <tr>
+                                        <td>@item.Id</td>
+                                        <td>@item.Nome</td>
+                                        <td>@item.Cpf</td>
+                                        <td>@item.Email</td>
+                                        <td>@item.Telefone</td>
+                                        <td>@item.Mae</td>
+                                        <td>@item.DataNascimento</td>
+                                        <td>@item.TelefoneResponavel</td>
+                                        <td>
+                                            <a class="btn btn-primary editarAluno" data-id="@item.Id">Editar</a>
+                                            <a class="btn btn-danger deletarAluno" data-id="@item.Id">Excluir</a>
+
+                                        </td>
+
+                                    </tr>
+                                }
+                            }
+                            else
+                            {
+                                <tr>
+                                    <td colspan="8" style="text-align:center">Não encontrado registros</td>
+
+                                </tr>
+                            }
+
+                        </tbody>
+                    </table>
+                </div>
+                <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+        </div>
+
+
 
     </div>
 </div>
