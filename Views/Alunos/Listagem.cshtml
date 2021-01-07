@@ -17,12 +17,12 @@
                 <div class="form-row">
                     <div class="form-group col-sm-12 col-md-6">
                         <label asp-for="CadastrAluno.Nome"></label>
-                        <input class="form-control" type="text" asp-for="CadastrAluno.Nome" />
+                        <input required class="form-control" type="text" asp-for="CadastrAluno.Nome" />
                         <span asp-validation-for="CadastrAluno.Nome" class="text-danger"></span>
                     </div>
                     <div class="form-group col-sm-12 col-md-6">
                         <label asp-for="CadastrAluno.Cpf"></label>
-                        <input class="form-control" type="text" asp-for="CadastrAluno.Cpf" />
+                        <input required class="form-control" type="text" asp-for="CadastrAluno.Cpf" />
                         <span asp-validation-for="CadastrAluno.Cpf" class="text-danger"></span>
 
                     </div>
@@ -32,26 +32,26 @@
                 <div class="form-row">
                     <div class="form-group col-sm-12 col-md-4">
                         <label asp-for="CadastrAluno.Cep"></label>
-                        <input type="text" class="form-control" asp-for="CadastrAluno.Cep" />
+                        <input required type="text" class="form-control" asp-for="CadastrAluno.Cep" />
                         <span asp-validation-for="CadastrAluno.Cep" class="text-danger"></span>
 
                     </div>
                     <div class="form-group col-sm-12 col-md-4">
                         <label asp-for="CadastrAluno.Logadouro"></label>
-                        <input type="text" class="form-control" asp-for="CadastrAluno.Logadouro" />
+                        <input required type="text" class="form-control" asp-for="CadastrAluno.Logadouro" />
                         <span asp-validation-for="CadastrAluno.Logadouro" class="text-danger"></span>
 
                     </div>
 
                     <div class="form-group col-sm-12 col-md-2">
                         <label asp-for="CadastrAluno.DataNascimento"></label>
-                        <input type="date" class="form-control" asp-for="CadastrAluno.DataNascimento" />
+                        <input required type="date" class="form-control" asp-for="CadastrAluno.DataNascimento" />
                         <span asp-validation-for="CadastrAluno.DataNascimento" class="text-danger"></span>
 
                     </div>
 
                     <div class="form-group col-sm-12 col-md-2" style="margin-top:25px">
-                        <select class="form-control" asp-for="CadastrAluno.Sexo">
+                        <select required class="form-control" asp-for="CadastrAluno.Sexo">
                             <option value="m">Masculino</option>
                             <option value="f">Feminino</option>
                             <option value="o">Outro</option>
@@ -68,20 +68,20 @@
                 <div class="form-row">
                     <div class="form-group col-sm-12 col-md-4">
                         <label asp-for="CadastrAluno.Email"></label>
-                        <input type="text" class="form-control" asp-for="CadastrAluno.Email" />
+                        <input required type="text" class="form-control" asp-for="CadastrAluno.Email" />
                         <span asp-validation-for="CadastrAluno.Email" class="text-danger"></span>
 
                     </div>
                     <div class="form-group col-sm-12 col-md-4">
                         <label asp-for="CadastrAluno.Telefone"></label>
-                        <input type="text" class="form-control" asp-for="CadastrAluno.Telefone" />
+                        <input required type="text" class="form-control" asp-for="CadastrAluno.Telefone" />
                         <span asp-validation-for="CadastrAluno.Telefone" class="text-danger"></span>
 
                     </div>
 
                     <div class="form-group col-sm-12 col-md-4">
                         <label asp-for="CadastrAluno.TelefoneResponavel"></label>
-                        <input type="text" class="form-control" asp-for="CadastrAluno.TelefoneResponavel" />
+                        <input required type="text" class="form-control" asp-for="CadastrAluno.TelefoneResponavel" />
                         <span asp-validation-for="CadastrAluno.TelefoneResponavel" class="text-danger"></span>
 
                     </div>

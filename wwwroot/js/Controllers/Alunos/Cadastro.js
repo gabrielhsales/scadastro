@@ -96,9 +96,21 @@ function tentaCadastrar() {
     $('form[name="cadastroAluno"]').submit(function (event) {
         event.preventDefault();
 
+        console.log($('#CadastrAluno_Nome').val())
+        if ($('#CadastrAluno_Cpf').val() === '' || $('#CadastrAluno_Cpf').val() === '') {
+            Swal.fire({
+                icon: 'info',
+                title: 'Cadastro de aluno',
+                text: 'favor preecha os campos',
+
+            })
+
+            return 
+        }
+
         $.ajax({
             url: `/alunos/cadastro`,
-            type: 'post',
+            type: 'put',
             data: $(this).serialize(),
             dataType: 'json',
             beforeSend: function () {
@@ -112,7 +124,7 @@ function tentaCadastrar() {
                 });
             },
         }).done(function (response) {
-
+            console.log(response)
             if (response.sucesso) {
 
                 Swal.fire({

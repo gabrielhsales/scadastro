@@ -19,6 +19,12 @@ namespace scadastro.Controllers
         {
         }
 
+
+
+
+
+
+
         [HttpGet]
         [Route("[controller]/[action]")]
         public IActionResult Listagem()
@@ -53,10 +59,8 @@ namespace scadastro.Controllers
             return View(model);
         }
 
-
-
-        [HttpPost]
-        [Route("[controller]/[action]")]
+        [HttpPut]
+        [Route("[controller]/Cadastro")]
         public IActionResult Cadastro(ListagemAlunosViewModel model)
         {
 
@@ -128,25 +132,29 @@ namespace scadastro.Controllers
 
 
             }
-
-
-
-
-            model.ListAluno = db.Alunos.Select(a => new ListagemAlunosViewModel.Listagem
+            else
             {
-                Id = a.Id,
-                Nome = a.Nome,
-                Cpf = Helper.FormatarCPF(a.Cpf),
-                Email = a.Email,
-                Telefone = Helper.FormatarTelefone(a.Telefone),
-                DataNascimento = a.Documento.DataNascimento.ToShortDateString(),
-                Mae = a.Documento.Mae,
-                TelefoneResponavel = Helper.FormatarTelefone(a.Documento.TelefoneResponavel.ToString())
-            }).ToList();
+                model.ListAluno = db.Alunos.Select(a => new ListagemAlunosViewModel.Listagem
+                {
+                    Id = a.Id,
+                    Nome = a.Nome,
+                    Cpf = Helper.FormatarCPF(a.Cpf),
+                    Email = a.Email,
+                    Telefone = Helper.FormatarTelefone(a.Telefone),
+                    DataNascimento = a.Documento.DataNascimento.ToShortDateString(),
+                    Mae = a.Documento.Mae,
+                    TelefoneResponavel = Helper.FormatarTelefone(a.Documento.TelefoneResponavel.ToString())
+                }).ToList();
 
 
 
-            return View("~/Views/Alunos/Listagem.cshtml", model);
+                return View("~/Views/Alunos/Listagem.cshtml", model);
+            }
+
+
+
+
+ 
         }
 
 
